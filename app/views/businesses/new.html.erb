@@ -1,0 +1,22 @@
+<h1>New Loan Request</h1>
+
+<%= form_with(model: @business, url: businesses_path, method: :post) do |form| %>
+  <div>
+    <%= form.label :Business_name %>
+    <%= form.text_field :name %>
+  </div><br>
+
+  <div>
+    <%= form.label :year_established %>
+    <%= form.number_field :year_established %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :loan_amount %>
+    <%= form.number_field :loan_amount, step: 0.01 %>
+  </div><br>
+
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>

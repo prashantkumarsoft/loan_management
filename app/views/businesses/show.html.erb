@@ -1,0 +1,32 @@
+<h1><p>Business Name:-  <%= @business.name %></h1></p>
+
+<p>Year Established: <%= @business.year_established %></p>
+
+<p>Loan Amount: <%= number_to_currency(@business.loan_amount) %></p>
+
+
+<%= link_to 'Fetch Balance Sheet', fetch_balance_sheet_business_path(@business), method: :get, remote: true, class: 'btn btn-primary' %>
+
+<% if @balance_sheet.present? %>
+  <h2>Balance Sheet</h2>
+  <ul>
+    <% @balance_sheet[:financial_data].each do |data| %>
+      <li>
+        <%= "Year: #{data[0]}, Month: #{data[1]}, Profit/Loss: #{data[2]}, Assets Value: #{data[3]}" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= button_to 'Submit Application', submit_application_business_path(@business), method: :post, class: 'btn btn-success' %>
+
+<% case @business.pre_assessment %>
+  <% when 60 %>
+    <p>Loan Approval: 60% Approved</p>
+  <% when 100 %>
+    <p>Loan Approval: 100% Approved</p>
+  <% else %>
+    <p>Loan Approval: 20% Default Approval</p>
+  <% end %>
+
+<%= link_to 'Back to New', new_business_path, class: 'btn btn-primary' %>
