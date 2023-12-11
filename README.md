@@ -16,7 +16,7 @@ Run the following command to install dependencies:
 
 Follow these steps to set up the project locally:
 
-1. Clone the repository:- https://github.com/prashantkumarsoft/loan_application.git
+1. Clone the repository:- https://github.com/prashantkumarsoft/loan_management.git
 
 2. Navigate to the project directory: cd loan_application
 
